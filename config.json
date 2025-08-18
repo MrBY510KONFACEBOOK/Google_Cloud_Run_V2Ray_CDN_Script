@@ -1,18 +1,38 @@
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
-      "port": 8080,
+      "port": 8080,  # Must match $PORT
       "protocol": "vless",
       "settings": {
         "decryption": "none",
         "clients": [
           {
-            "id": "UID"
+            "id": "d6c8eab1-4d2e-4e0f-81df-962bf8b7f5b1",
+            "flow": "xtls-rprx-vision"
           }
         ]
       },
       "streamSettings": {
-        "network": "ws"
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/etc/xray/fullchain.pem",
+              "keyFile": "/etc/xray/privkey.pem"
+            }
+          ]
+        },
+        "wsSettings": {
+          "path": "/abdellahvps"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
       }
     }
   ],
