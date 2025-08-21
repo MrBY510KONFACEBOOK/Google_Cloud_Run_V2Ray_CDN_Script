@@ -1,5 +1,4 @@
 version: 1.0
-runtime: docker
 
 build:
   commands:
@@ -7,6 +6,5 @@ build:
       - docker build -t my-v2ray-image .
 
 run:
-  # لا تضع command هنا حتى لا تتجاوز ENTRYPOINT
   network:
     port: 8080
