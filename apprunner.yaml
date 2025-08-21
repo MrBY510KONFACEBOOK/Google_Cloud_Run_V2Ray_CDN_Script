@@ -1,0 +1,15 @@
+version: 1.0
+runtime: docker
+
+build:
+  commands:
+    build:
+      - docker build -t my-v2ray-image .
+
+run:
+  command: sh -c "./v2ray run"
+  network:
+    port: 8080
+
+image:
+  port: 8080
