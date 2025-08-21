@@ -1,15 +1,12 @@
 version: 1.0
-runtime: docker
+runtime: dockerfile
 
 build:
   commands:
-    build:
-      - docker build -t my-v2ray-image .
+    pre-build:
+      - echo "Pre-build setup"
 
 run:
-  command: sh -c "./v2ray run"
+  command: ./v2ray run
   network:
     port: 8080
-
-image:
-  port: 8080
