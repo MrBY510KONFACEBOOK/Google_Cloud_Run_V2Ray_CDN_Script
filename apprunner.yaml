@@ -6,5 +6,10 @@ build:
       - docker build -t my-v2ray-image .
 
 run:
+  runtime: docker
+  command: ./v2ray run
   network:
     port: 8080
+  env:
+    PORT: 8080
+    
